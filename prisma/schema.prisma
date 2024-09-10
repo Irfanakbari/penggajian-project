@@ -1,0 +1,78 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Karyawan {
+  nik           String    @id
+  name          String
+  email         String?
+  birthDate     DateTime?
+  baseSalary    Int       @default(0)
+  lastEducation String?
+  phoneNumber   String?
+  pict          String?
+  level         String?
+  address       String?
+  startWork     DateTime?
+  role          Role
+  password      String
+  mealAllowance Int       @default(30000)
+  Loan          Loan[]
+  Salary        Salary[]
+}
+
+model Salary {
+  id             Int      @id @default(autoincrement())
+  karyawanNik    String
+  month          DateTime @db.Date
+  baseSalary     Int
+  absenSalary    Int
+  bonusSalary    Int
+  foodSalary     Int
+  pphSalary      Int      @default(0)
+  loan           Int      @default(0)
+  totalDayWork   Int
+  totalAlpha     Int
+  totalSick      Int
+  totalSalary    Int
+  createdAt      DateTime @default(now())
+  generatedBy    String
+  mealAllowance  Int      @default(30000)
+  absenDeduction Int      @default(0)
+  Karyawan       Karyawan @relation(fields: [karyawanNik], references: [nik])
+}
+
+model Loan {
+  id            Int      @id @default(autoincrement())
+  karyawanNik   String
+  totalLoan     Int      @default(0)
+  monthLoan     Int      @default(0)
+  remainingLoan Int      @default(0)
+  lunas         Boolean  @default(false)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @default(now())
+  Karyawan      Karyawan @relation(fields: [karyawanNik], references: [nik])
+
+  @@index([karyawanNik], map: "Loan_karyawanNik_fkey")
+}
+
+model Setting {
+  id             Int       @id @default(autoincrement())
+  companyName    String
+  companyLogo    String?
+  companyAddress String?
+  updatedAt      DateTime?
+}
+
+enum Role {
+  DESIGNER
+  OPERATOR
+  ADMIN
+  PRODUKSI
+  CS
+}
