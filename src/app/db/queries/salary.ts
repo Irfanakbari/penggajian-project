@@ -101,7 +101,7 @@ export async function postSalary(salaryData: SalaryPost): Promise<boolean> {
             const loanDeduction = loanUser ? loanUser.totalLoan / loanUser.monthLoan : 0;
 
             // Calculate total salary
-            const totalSalary = baseSalary + bonusSalary + totalDayWork * 50000 - loanDeduction;
+            const totalSalary = baseSalary + bonusSalary + totalDayWork * userInfo.mealAllowance - loanDeduction;
 
             // Create new salary record
             const newSalary = await prisma.salary.create({

@@ -123,13 +123,19 @@ const SalarySlip: React.FC<Salary> = (salary) => (
                     </Text>
                 </View>
                 <View style={styles.row}>
+                    <Text style={styles.label}>Loadn:</Text>
+                    <Text style={styles.value}>
+                        {salary.loan?.toLocaleString() || '0'}
+                    </Text>
+                </View>
+                <View style={styles.row}>
                     <Text style={styles.label}>Net Salary:</Text>
                     <Text style={styles.value2}>
                         {(
                             (salary.baseSalary || 0) +
                             (salary.foodSalary || 0) +
                             (salary.bonusSalary || 0) -
-                            (salary.absenSalary || 0)
+                            (salary.absenSalary || 0) - (salary.loan || 0)
                         ).toLocaleString()}
                     </Text>
                 </View>
