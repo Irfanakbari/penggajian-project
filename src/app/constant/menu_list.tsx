@@ -5,7 +5,7 @@ const menulist = [
     '/app/master/pinjaman',
     '/app/master/salary',
     '/app/master/settings',
-    '/app/master/profile',
+    '/app/profile',
     '/app/salary'
 ];
 

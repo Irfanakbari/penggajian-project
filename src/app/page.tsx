@@ -29,12 +29,13 @@ export default function Home() {
 
   return (
       <main
-          className="flex min-h-screen flex-col w-full p-24 items-center justify-center bg-cover bg-center bg-bg-image">
+          className="absolute flex min-h-screen flex-col w-full p-24 items-center justify-center bg-cover bg-center bg-bg-image ">
+        <div className="absolute inset-0 bg-black bg-opacity-60 backdrop-blur-sm"></div>
         {
           contextHolder
         }
         <div
-            className="w-full md:w-1/2 lg:w-1/3 p-8 backdrop-blur-sm bg-white/20 rounded-lg shadow-lg mt-10 flex flex-col items-center gap-8">
+            className="relative z-10 w-full md:w-1/2 lg:w-1/3 p-8 backdrop-blur-sm bg-white/20 rounded-lg shadow-lg mt-10 flex flex-col items-center gap-8">
           {/* Konten Login Anda di sini */}
           {/*<h2 className="text-2xl font-semibold mb-4 text-center">Selamat Datang</h2>*/}
           <Image src={'/images/logo2.png'} alt={'Logo'} width={320} height={150}/>
@@ -64,8 +65,8 @@ export default function Home() {
             </Form.Item>
           </Form>
         </div>
-        <span className={`text-white mt-10`}>CV Berkah Abadi © 2024</span>
-        <span className={`text-white mt-1`}>Version 1.0</span>
+        <span className={`relative z-10 text-white mt-10`}>CV Berkah Abadi © 2024</span>
+        <span className={`relative z-10 text-white mt-1`}>Version 1.0</span>
       </main>
   );
 }

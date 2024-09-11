@@ -9,7 +9,7 @@ const config: Config = {
   theme: {
     extend: {
       backgroundImage: {
-        'bg-image' : "url('../../public/images/bg2.jpg')",
+        'bg-image' : "url('../../public/images/payrol.jpg')",
         'bg-logo' : "url('../../public/images/vuteq.png')",
         'bg-nova' : "url('../../public/images/nova-char.png')",
         'bg-ai' : "url('../../public/images/ai.jpg')"

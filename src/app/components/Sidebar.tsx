@@ -74,12 +74,12 @@ export default function SideBarSC({
                 icon: <DropboxOutlined />,
             });
         }
+        items.push({
+            key: '6',
+            label: 'Profile',
+            icon: <DropboxOutlined />,
+        });
         if(!roles.includes('ADMIN')){
-            items.push({
-                key: '6',
-                label: 'Profile',
-                icon: <DropboxOutlined />,
-            });
             items.push({
                 key: '7',
                 label: 'Salary Report',

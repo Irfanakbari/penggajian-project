@@ -40,6 +40,30 @@ export async function getKaryawan(): Promise<Karyawan[]> {
     });
 }
 
+export async function getOneKaryawan(nik: string): Promise<Karyawan|null> {
+    // Function to fetch all posts from the database.
+    return db.karyawan.findFirst({
+        where: {
+            nik: nik
+        },
+        select: {
+            nik: true,
+            name: true,
+            email: true,
+            baseSalary: true,
+            birthDate: true,
+            phoneNumber: true,
+            lastEducation: true,
+            mealAllowance: true,
+            pict: true,
+            level: true,
+            address: true,
+            startWork: true,
+            role: true,
+        },
+    });
+}
+
 
 export async function postKaryawan(karyawan: Karyawan): Promise<boolean> {  // Function to fetch all posts from the database.
     try {
