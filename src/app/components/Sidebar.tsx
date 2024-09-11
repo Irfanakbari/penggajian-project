@@ -152,7 +152,7 @@ export default function SideBarSC({
                             textAlign: 'center',
                             marginBottom: '0px'
                         }}>
-                            <span className={`text-white font-semibold`}>CV Berkah Abadi © 2024</span>
+                            <span className={`text-white font-semibold`}>CV Terang Jaya © 2024</span>
                         </Footer>
                     </Layout>
                 </>

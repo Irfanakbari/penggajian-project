@@ -65,7 +65,7 @@ export default function Home() {
             </Form.Item>
           </Form>
         </div>
-        <span className={`relative z-10 text-white mt-10`}>CV Berkah Abadi © 2024</span>
+        <span className={`relative z-10 text-white mt-10`}>CV Terang Jaya © 2024</span>
         <span className={`relative z-10 text-white mt-1`}>Version 1.0</span>
       </main>
   );

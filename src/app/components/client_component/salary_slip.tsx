@@ -49,7 +49,7 @@ const SalarySlip: React.FC<Salary> = (salary) => (
             {/* Salary Slip Header */}
             <View style={styles.section}>
                 <Text style={styles.header}>Salary Slip</Text>
-                <Text style={styles.header}>CV Berkah Abadi</Text>
+                <Text style={styles.header}>CV Terang Jaya</Text>
             </View>
 
             {/* Employee Information */}
