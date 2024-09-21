@@ -46,7 +46,7 @@ const SalaryDetails = ({
             </li>
             <li style={{ display: "flex", justifyContent: "space-between", marginBottom: 8 }}>
                 <MinusCircleOutlined style={{ marginRight: 8 }} />
-                <span>Total Potongan (Alpha):</span>
+                <span>Total Potongan (Ketidakhadiran):</span>
                 <span>{formatRupiah(deductions)}</span>
             </li>
             <Divider style={{ margin: "10px 0" }} />

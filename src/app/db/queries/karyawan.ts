@@ -72,13 +72,53 @@ export async function postKaryawan(karyawan: Karyawan): Promise<boolean> {  // F
             data: {
                 ...karyawan,
                 baseSalary: parseInt(karyawan.baseSalary.toString()),
-                password: hashedPass
+                password: hashedPass,
+                mealAllowance: parseInt(karyawan.mealAllowance ? karyawan.mealAllowance.toString(): '30000'),
             },
         })
         return !!result;
     } catch (error) {
         console.log("Failed Add Employee : " + error)
         return false
+    }
+}
+
+export async function updateKaryawan(karyawan: Karyawan): Promise<boolean> {
+    try {
+        // Initialize updateData with other fields except password
+        const updateData: Partial<Karyawan> = {
+            ...karyawan,
+            baseSalary: parseInt(karyawan.baseSalary.toString()),
+            mealAllowance: parseInt(karyawan.mealAllowance ? karyawan.mealAllowance.toString() : '30000'),
+        };
+
+        // Only hash and update the password if it's provided
+        if (karyawan.password) {
+            updateData.password = await bcrypt.hash(karyawan.password, 10);
+        }
+
+        const result = await db.karyawan.update({
+            where: {
+                nik: karyawan.nik,
+            },
+            data: {
+                name: karyawan.name,
+                email: karyawan.email,
+                birthDate: karyawan.birthDate,
+                baseSalary: parseInt(karyawan.baseSalary.toString()),
+                lastEducation: karyawan.lastEducation,
+                phoneNumber: karyawan.phoneNumber,
+                mealAllowance: karyawan.mealAllowance,
+                role: karyawan.role,
+                address: karyawan.address,
+                startWork: karyawan.startWork,
+            },
+        });
+
+        return !!result;
+    } catch (error) {
+        console.log("Failed to update Employee: " + error);
+        return false;
     }
 }
 

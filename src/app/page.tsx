@@ -29,7 +29,7 @@ export default function Home() {
 
   return (
       <main
-          className="absolute flex min-h-screen flex-col w-full p-24 items-center justify-center bg-cover bg-center bg-bg-image ">
+          className="absolute flex h-screen flex-col w-full p-24 items-center justify-center bg-cover bg-center bg-bg-image ">
         <div className="absolute inset-0 bg-black bg-opacity-60 backdrop-blur-sm"></div>
         {
           contextHolder
@@ -66,7 +66,7 @@ export default function Home() {
           </Form>
         </div>
         <span className={`relative z-10 text-white mt-10`}>CV Terang Jaya © 2024</span>
-        <span className={`relative z-10 text-white mt-1`}>Version 1.0</span>
+        <span className={`relative z-10 text-white mt-1`}>Version 2.0</span>
       </main>
   );
 }

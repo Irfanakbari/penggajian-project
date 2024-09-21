@@ -8,11 +8,13 @@ import ButtonToolbar from "@/app/components/ButtonToolbar";
 import AddKaryawan from "@/app/components/server_component/karyawan/add_modal";
 import {deleteKaryawan, getKaryawan, Karyawan} from "@/app/db/queries/karyawan";
 import dayjs from "dayjs";
+import EditKaryawan from "@/app/components/server_component/karyawan/edit_modal";
 
 const MasterKaryawan = () => {
     const [data, setData] = useState<Karyawan[]>([])
     const [messageApi, contextHolder] = message.useMessage();
     const [modalOpen, setModalOpen] = useState(false);
+    const [modalEditOpen, setModalEditOpen] = useState(false);
     const [loading, setLoading] = useState(true);
     const [selectedRows, setSelectedRows] = useState<Karyawan[]>([]);
 
@@ -71,12 +73,12 @@ const MasterKaryawan = () => {
 
     const columns = [
         {
-            title: 'NIK',
+            title: 'NIK/Username',
             dataIndex: 'nik',
             key: 'nik',
         },
         {
-            title: 'Name',
+            title: 'Nama',
             dataIndex: 'name',
             key: 'name',
         },
@@ -86,7 +88,7 @@ const MasterKaryawan = () => {
             key: 'email',
         },
         {
-            title: 'Birth Date',
+            title: 'Tanggal Lahir',
             dataIndex: 'birthDate',
             key: 'birthDate',
             render: (_: any, record: Karyawan) => record.birthDate
@@ -94,39 +96,39 @@ const MasterKaryawan = () => {
                 : '-'
         },
         {
-            title: 'Base Salary',
+            title: 'Gaji Pokok',
             dataIndex: 'baseSalary',
             key: 'baseSalary',
             render: (baseSalary: number) => formatRupiah(baseSalary),
         },
         {
-            title: 'Meal Allowance',
+            title: 'Uang Makan/Hari',
             dataIndex: 'mealAllowance',
             key: 'mealAllowance',
             render: (mealAllowance: number) => formatRupiah(mealAllowance),
         },
         {
-            title: 'Last Education',
+            title: 'Pendidikan Terakhir',
             dataIndex: 'lastEducation',
             key: 'lastEducation',
         },
         {
-            title: 'Phone Number',
+            title: 'Nomor Ponsel',
             dataIndex: 'phoneNumber',
             key: 'phoneNumber',
         },
-        {
-            title: 'Level Jabatan',
-            dataIndex: 'level',
-            key: 'level',
-        },
+        // {
+        //     title: 'Level Jabatan',
+        //     dataIndex: 'level',
+        //     key: 'level',
+        // },
         {
             title: 'Alamat',
             dataIndex: 'address',
             key: 'address',
         },
         {
-            title: 'Start Work',
+            title: 'Mulai Bekerja',
             dataIndex: 'startWork',
             key: 'startWork',
             render: (_: any, record: Karyawan) => record.startWork
@@ -145,6 +147,8 @@ const MasterKaryawan = () => {
                 contextHolder
             }
             <AddKaryawan modalOpen={modalOpen} setModalOpen={setModalOpen} fetchData={fetchData} />
+            <EditKaryawan modalOpen={modalEditOpen} setModalOpen={setModalEditOpen} fetchData={fetchData} karyawan={selectedRows[0]}/>
+
             <Breadcrumb
                 items={[
                     {
@@ -156,9 +160,10 @@ const MasterKaryawan = () => {
                 ]}
             />
             <ToolbarWrapper>
-                <ButtonToolbar title={'New'} icon={<IoMdAdd size={16}/>} onClick={() => setModalOpen(true)}/>
+                <ButtonToolbar title={'Baru'} icon={<IoMdAdd size={16}/>} onClick={() => setModalOpen(true)}/>
+                <ButtonToolbar enable={selectedRows.length> 0} title={'Edit'} icon={<IoMdAdd size={16}/>} onClick={() => setModalEditOpen(true)}/>
                 <ButtonToolbar title={'Refresh'} icon={<IoMdRefresh size={16}/>} onClick={() => fetchData()}/>
-                <ButtonToolbar enable={selectedRows.length> 0} title={'Delete'} icon={<IoMdTrash size={16}/>}
+                <ButtonToolbar enable={selectedRows.length> 0} title={'Hapus'} icon={<IoMdTrash size={16}/>}
                                onClick={() => deleteData(selectedRows[0].nik)}/>
             </ToolbarWrapper>
             <Table

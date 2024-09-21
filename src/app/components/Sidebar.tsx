@@ -68,11 +68,11 @@ export default function SideBarSC({
                 label: 'Data Penggajian',
                 icon: <DropboxOutlined />,
             });
-            items.push({
-                key: '5',
-                label: 'Pengaturan',
-                icon: <DropboxOutlined />,
-            });
+            // items.push({
+            //     key: '5',
+            //     label: 'Pengaturan',
+            //     icon: <DropboxOutlined />,
+            // });
         }
         items.push({
             key: '6',
@@ -93,7 +93,7 @@ export default function SideBarSC({
             {
                 loading ? <Loading/> : <>
                     <Sider
-                        width={300}
+                        width={250}
                         theme={'dark'}
                         className={'overflow-y-scroll hidden-scrollbar'}
                         trigger={null} collapsible collapsed={collapsed}>

@@ -45,12 +45,13 @@ export default function AddSalary({
         const baseSalary = selectedKaryawan?.baseSalary || 0;
         const mealAllowancePerDay = selectedKaryawan?.mealAllowance || 0;
         const totalDaysWorked = values.totalDayWork || 0;
-        const totalAlpha = values.totalAlpha || 0;
+        const totalAlpha = parseInt(values.totalAlpha || 0, 10); // Pastikan ini adalah angka
+        const totalSick = parseInt(values.totalSick || 0, 10);  // Pastikan ini juga angka
         const totalBonus = parseInt(String(values.bonusSalary || 0));
         const totalMealAllowance = mealAllowancePerDay * totalDaysWorked;
 
         const grossSalary = baseSalary + totalMealAllowance + totalBonus;
-        const deductions = totalAlpha * (baseSalary / totalDaysWorked);
+        const deductions = 100000 * (totalAlpha + totalSick);
         const netSalary = grossSalary - deductions;
 
         setBaseSalary(baseSalary);

@@ -110,16 +110,16 @@ export default function AddKaryawan({modalOpen, setModalOpen, fetchData}: {
                     <Form.Item className={`w-full`} label="Email" name={'email'}>
                         <Input className={`w-full`} placeholder="Input Email"/>
                     </Form.Item>
-                    <Form.Item className={`w-full`} label="Start Work" name={'startWork'}>
+                    <Form.Item className={`w-full`} label="Mulai Bekerja" name={'startWork'}>
                         <DatePicker className={`w-full`}/>
                     </Form.Item>
                 </div>
                 <div className={`flex flex-row gap-4`}>
-                    <Form.Item className={`w-full`} label="Birth Date" name={'birthDate'}>
+                    <Form.Item className={`w-full`} label="Tanggal Lahir" name={'birthDate'}>
                         <DatePicker className={`w-full`}/>
                     </Form.Item>
-                    <Form.Item className={`w-full`} label="Base Salary" name={'baseSalary'}>
-                        <Input className={`w-full`} type={'number'} min={0} placeholder="Input Base Salary"/>
+                    <Form.Item className={`w-full`} label="Gaji Pokok" name={'baseSalary'}>
+                        <Input className={`w-full`} type={'number'} min={0} placeholder="Input Gaji Pokok"/>
                     </Form.Item>
                 </div>
                 <div className={`flex flex-row gap-4`}>
@@ -132,13 +132,13 @@ export default function AddKaryawan({modalOpen, setModalOpen, fetchData}: {
                             options={options2}
                         />
                     </Form.Item>
-                    <Form.Item className={`w-full`} label="Phone Number" name={'phoneNumber'}>
-                        <Input className={`w-full`} type={'number'} min={0} placeholder="Input Phone Number"/>
+                    <Form.Item className={`w-full`} label="Nomor Ponsel" name={'phoneNumber'}>
+                        <Input className={`w-full`} type={'number'} min={0} placeholder="Input Nomor Ponsel"/>
                     </Form.Item>
                 </div>
                 <div className={`flex flex-row gap-4`}>
-                    <Form.Item className={`w-full`} label="Level Karyawan" name={'level'}>
-                        <Input className={`w-full`} placeholder="Input Level Karyawan"/>
+                    <Form.Item className={`w-full`} label="Uang Makan" name={'mealAllowance'}>
+                        <Input className={`w-full`} type={'number'} min={0} placeholder="Input Uang Makan"/>
                     </Form.Item>
                     <Form.Item className={`w-full`} label="Role Karyawan" name={'role'}>
                         <Select

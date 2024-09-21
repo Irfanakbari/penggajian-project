@@ -76,23 +76,23 @@ const MasterPinjaman = () => {
             key: "nik",
         },
         {
-            title: "Name",
+            title: "Nama Karyawan",
             dataIndex: ["Karyawan", "name"],
             key: "name",
         },
         {
-            title: "Total Loan",
+            title: "Total Pinjaman",
             dataIndex: "totalLoan",
             key: "totalLoan",
             render: (totalLoan: number) => formatRupiah(totalLoan),
         },
         {
-            title: "Month Loan",
+            title: "Jumlah Bulan",
             dataIndex: "monthLoan",
             key: "monthLoan",
         },
         {
-            title: "Remaining Loan",
+            title: "Sisa Pinjaman",
             dataIndex: "remainingLoan",
             key: "remainingLoan",
             render: (remainingLoan: number) => formatRupiah(remainingLoan),
@@ -104,14 +104,14 @@ const MasterPinjaman = () => {
             render: (lunas: boolean) => (lunas ? "Yes" : "No"),
         },
         {
-            title: "Created At",
+            title: "Dibuat",
             dataIndex: "createdAt",
             key: "createdAt",
             render: (createdAt: Date) =>
                 dayjs(createdAt).locale("id").format("DD MMMM YYYY"),
         },
         {
-            title: "Updated At",
+            title: "Update Terakhir",
             dataIndex: "updatedAt",
             key: "updatedAt",
             render: (updatedAt: Date) =>
@@ -135,9 +135,9 @@ const MasterPinjaman = () => {
                 ]}
             />
             <ToolbarWrapper>
-                <ButtonToolbar title={'New'} icon={<IoMdAdd size={16}/>} onClick={() => setModalOpen(true)}/>
+                <ButtonToolbar title={'Baru'} icon={<IoMdAdd size={16}/>} onClick={() => setModalOpen(true)}/>
                 <ButtonToolbar title={'Refresh'} icon={<IoMdRefresh size={16}/>} onClick={() => fetchData()}/>
-                <ButtonToolbar enable={selectedRows.length> 0} title={'Delete'} icon={<IoMdTrash size={16}/>}
+                <ButtonToolbar enable={selectedRows.length> 0} title={'Hapus'} icon={<IoMdTrash size={16}/>}
                                onClick={() => deleteData(selectedRows[0].id)}/>
             </ToolbarWrapper>
             <Table

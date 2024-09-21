@@ -30,3 +30,29 @@
 .page-break {
   page-break-before: always;
 }
+
+@media print {
+  @page {
+    margin: 1cm;
+  }
+
+  .print-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: #3da0e3;
+    color: white;
+  }
+
+  .print-table {
+    font-size: 11px;
+  }
+
+  .print-table tr td {
+    padding: 2px 0 !important;
+  }
+}
