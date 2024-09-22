@@ -45,13 +45,12 @@ export default function AddSalary({
         const baseSalary = selectedKaryawan?.baseSalary || 0;
         const mealAllowancePerDay = selectedKaryawan?.mealAllowance || 0;
         const totalDaysWorked = values.totalDayWork || 0;
-        const totalAlpha = parseInt(values.totalAlpha || 0, 10); // Pastikan ini adalah angka
-        const totalSick = parseInt(values.totalSick || 0, 10);  // Pastikan ini juga angka
+        const totalOff = parseInt(values.totalOff || 0, 10);  // Pastikan ini juga angka
         const totalBonus = parseInt(String(values.bonusSalary || 0));
         const totalMealAllowance = mealAllowancePerDay * totalDaysWorked;
 
         const grossSalary = baseSalary + totalMealAllowance + totalBonus;
-        const deductions = 100000 * (totalAlpha + totalSick);
+        const deductions = 100000 * (totalOff);
         const netSalary = grossSalary - deductions;
 
         setBaseSalary(baseSalary);
@@ -70,8 +69,7 @@ export default function AddSalary({
                 karyawanNik: values.karyawanNik,
                 month: new Date(values.month),
                 totalDayWork: parseInt(values.totalDayWork.toString()),
-                totalAlpha: parseInt(values.totalAlpha.toString()),
-                totalSick: parseInt(values.totalSick.toString()),
+                totalOff: parseInt(values.totalOff.toString()),
                 bonusSalary: parseInt(values.bonusSalary.toString()),
                 baseSalary: parseInt(values.baseSalary.toString()),
                 absenDeduction: deductions,
@@ -139,11 +137,8 @@ export default function AddSalary({
                         </Form.Item>
                     </div>
                     <div className="flex flex-row gap-4">
-                        <Form.Item className="w-full" label="Total Hari Alpha" name="totalAlpha" required>
+                        <Form.Item className="w-full" label="Total Tidak Hadir" name="totalOff" required>
                             <Input className="w-full" type="number" min={0} max={31} placeholder="Input Total Hari Alpha"/>
-                        </Form.Item>
-                        <Form.Item className="w-full" label="Total Hari Sakit" name="totalSick" required>
-                            <Input className="w-full" type="number" min={0} max={31} placeholder="Input Total Hari Sakit"/>
                         </Form.Item>
                     </div>
                     <SalaryDetails baseSalary={baseSalary} mealAllowancePerDay={mealAllowancePerDay} totalMealAllowance={totalMealAllowance} bonusSalary={form.getFieldValue("bonusSalary") || 0} grossSalary={grossSalary} deductions={deductions} netSalary={netSalary}/>

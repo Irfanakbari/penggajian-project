@@ -95,27 +95,47 @@ export async function updateKaryawan(karyawan: Karyawan): Promise<boolean> {
         // Only hash and update the password if it's provided
         if (karyawan.password) {
             updateData.password = await bcrypt.hash(karyawan.password, 10);
+            const result = await db.karyawan.update({
+                where: {
+                    nik: karyawan.nik,
+                },
+                data: {
+                    name: karyawan.name,
+                    email: karyawan.email,
+                    birthDate: karyawan.birthDate,
+                    baseSalary: parseInt(karyawan.baseSalary.toString()),
+                    lastEducation: karyawan.lastEducation,
+                    phoneNumber: karyawan.phoneNumber,
+                    mealAllowance: karyawan.mealAllowance,
+                    role: karyawan.role,
+                    address: karyawan.address,
+                    startWork: karyawan.startWork,
+                    password: updateData.password,
+                },
+            });
+
+            return !!result;
+        } else {
+            const result = await db.karyawan.update({
+                where: {
+                    nik: karyawan.nik,
+                },
+                data: {
+                    name: karyawan.name,
+                    email: karyawan.email,
+                    birthDate: karyawan.birthDate,
+                    baseSalary: parseInt(karyawan.baseSalary.toString()),
+                    lastEducation: karyawan.lastEducation,
+                    phoneNumber: karyawan.phoneNumber,
+                    mealAllowance: karyawan.mealAllowance,
+                    role: karyawan.role,
+                    address: karyawan.address,
+                    startWork: karyawan.startWork,
+                },
+            });
+
+            return !!result;
         }
-
-        const result = await db.karyawan.update({
-            where: {
-                nik: karyawan.nik,
-            },
-            data: {
-                name: karyawan.name,
-                email: karyawan.email,
-                birthDate: karyawan.birthDate,
-                baseSalary: parseInt(karyawan.baseSalary.toString()),
-                lastEducation: karyawan.lastEducation,
-                phoneNumber: karyawan.phoneNumber,
-                mealAllowance: karyawan.mealAllowance,
-                role: karyawan.role,
-                address: karyawan.address,
-                startWork: karyawan.startWork,
-            },
-        });
-
-        return !!result;
     } catch (error) {
         console.log("Failed to update Employee: " + error);
         return false;

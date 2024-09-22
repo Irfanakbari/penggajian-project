@@ -37,8 +37,7 @@ model Salary {
   pphSalary      Int      @default(0)
   loan           Int      @default(0)
   totalDayWork   Int
-  totalAlpha     Int
-  totalSick      Int
+  totalOff       Int      @default(0)
   totalSalary    Int
   createdAt      DateTime @default(now())
   generatedBy    String

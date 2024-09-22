@@ -78,7 +78,7 @@ const ProfilePage = () => {
                 </Form.Item>
 
                 <Form.Item label="Birth Date" name="birthDate">
-                    <DatePicker disabled />
+                    <DatePicker placeholder={'-'} disabled />
                 </Form.Item>
 
                 <Form.Item label="Start Work" name="startWork">

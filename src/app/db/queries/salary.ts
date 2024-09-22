@@ -14,8 +14,7 @@ export type Salary = {
     pphSalary: number;
     loan: number;
     totalDayWork: number;
-    totalAlpha: number;
-    totalSick: number;
+    totalOff: number;
     totalSalary: number;
     createdAt: Date;
     generatedBy: string;
@@ -25,8 +24,7 @@ export type Salary = {
 export type SalaryPost = {
     karyawanNik: string
     totalDayWork: number
-    totalAlpha: number;
-    totalSick: number;
+    totalOff: number;
     baseSalary: number;
     mealAllowancePerDay: number;
     month: Date;
@@ -108,8 +106,7 @@ export async function postSalary(salaryData: SalaryPost): Promise<boolean> {
                 data: {
                     month: salaryData.month,
                     bonusSalary,
-                    totalAlpha: salaryData.totalAlpha,
-                    totalSick: salaryData.totalSick,
+                    totalOff: salaryData.totalOff,
                     totalDayWork,
                     totalSalary,
                     mealAllowance,

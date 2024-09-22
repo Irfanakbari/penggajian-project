@@ -148,7 +148,6 @@ const MasterKaryawan = () => {
             }
             <AddKaryawan modalOpen={modalOpen} setModalOpen={setModalOpen} fetchData={fetchData} />
             <EditKaryawan modalOpen={modalEditOpen} setModalOpen={setModalEditOpen} fetchData={fetchData} karyawan={selectedRows[0]}/>
-
             <Breadcrumb
                 items={[
                     {
