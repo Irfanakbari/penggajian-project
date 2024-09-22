@@ -105,14 +105,10 @@ const SalaryUser = () => {
             key: "totalDayWork",
         },
         {
-            title: "Total Alpha Days",
-            dataIndex: "totalAlpha",
-            key: "totalAlpha",
-        },
-        {
-            title: "Total Sick Days",
-            dataIndex: "totalSick",
-            key: "totalSick",
+            title: "Total Tidak Hadir",
+            key: "absenTotal",
+            // dataIndex: "totalSick",
+            render: (value: any) => `${(value.totalOff).toLocaleString()} Hari`,
         },
         {
             title: "Total Salary",

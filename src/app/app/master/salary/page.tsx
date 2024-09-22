@@ -118,7 +118,7 @@ const MasterSalary = () => {
             title: "Total Tidak Hadir",
             key: "absenTotal",
             // dataIndex: "totalSick",
-            render: (value: any) => `${(value.totalSick+ value.totalAlpha).toLocaleString()} Hari`,
+            render: (value: any) => `${(value.totalOff).toLocaleString()} Hari`,
         },
         // {
         //     title: "Total Sick Days",
