@@ -83,15 +83,9 @@ const SalarySlip: React.FC<Salary> = (salary) => (
                     </Text>
                 </View>
                 <View style={styles.row}>
-                    <Text style={styles.label}>Absent:</Text>
+                    <Text style={styles.label}>Off:</Text>
                     <Text style={styles.value}>
-                        {salary.totalAlpha ?? 0}
-                    </Text>
-                </View>
-                <View style={styles.row}>
-                    <Text style={styles.label}>Sick:</Text>
-                    <Text style={styles.value}>
-                        {salary.totalSick ?? 0}
+                        {salary.totalOff ?? 0}
                     </Text>
                 </View>
             </View>
